@@ -25,27 +25,62 @@
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 </head>
+
+<?php
+    $result=0;
+    $resCountry=$sparql->query(
+        'SELECT DISTINCT   ?country   WHERE {'.
+        '?country rdf:type yago:WikicatMemberStatesOfTheUnitedNations .'.
+        '} ORDER BY ?country '
+    );
+
+?>
 <body>
 <h1>EasyRdf Basic Sparql Example</h1>
-
-<h2>List of countries</h2>
-
+<div>
+    <h1>List of Countries</h1>
+    <form id="" method="GET">
+        <select name="country" >
+            <?php
+                foreach($resCountry as $row):
+                    $listCountry=substr($row->country,28);
+                    $listCountry=str_replace('_',' ',ucwords($listCountry));
+            ?>
+            <option value="<?= $listCountry?>"><?= $listCountry?></option>
+            <?php endforeach;?>
+        </select>
+        <input type="submit">
+    </form>
+</div>
 
 
 <?php
-    $result = $sparql->query(
-        'SELECT DISTINCT   ?country ?nama   WHERE {'.
-        '  ?univ rdf:type dbo:University .'.
-        '  ?univ dbo:abstract ?desc .'.
-        '  ?univ dbp:name ?nama .'.
-        ' ?univ dbp:country dbr:Indonesia.'.
-        ' dbr:Indonesia dbp:commonName ?country .'.
-        'FILTER langMatches (lang(?desc),"EN")'.
-        'FILTER langMatches (lang(?nama),"EN")'.
-      
-        '} ORDER BY ?nama LIMIT 200'
-    );
+    if(isset($_GET['country'])){
+        $getCountry=$_GET['country'];
+        $getCountry=str_replace(' ','_',ucwords($getCountry));
+        $result = $sparql->query(
+            'SELECT DISTINCT   ?country ?nama   WHERE {'.
+            '  ?univ rdf:type dbo:University .'.
+            '  ?univ dbo:abstract ?desc .'.
+            '  ?univ dbp:name ?nama .'.
+            ' ?univ dbp:country dbr:'.$getCountry.' .'.
+            ' dbr:'.$getCountry. ' dbp:commonName ?country .'.
+            'FILTER langMatches (lang(?desc),"EN")'.
+            'FILTER langMatches (lang(?nama),"EN")'.
+            'FILTER langMatches (lang(?country),"EN")'.
+          
+            '} ORDER BY ?nama '
+        );
+    }
 ?>
+
+<?php
+    if($result):
+?>
+<h2>List of University</h2>
+
+<h2><?=$getCountry?></h2>
+
 
 <div class=" mb-3 mt-3" style="width:80% ; margin:auto;">
 <table  style="width:100%;  font-weight:bold; " class="table table-striped table-bordered mydatatable">
@@ -87,6 +122,9 @@
     </tfoot>
         
     </table>
+    <?php else:?>
+
+    <?php endif;?>
 </div>
 
 
