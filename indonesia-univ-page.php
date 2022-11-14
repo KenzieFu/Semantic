@@ -187,7 +187,7 @@
       var searchAroundThe = document.getElementById("searchAroundThe");
       if (searchAroundThe) {
         searchAroundThe.addEventListener("click", function (e) {
-          window.location.href = "./home-page.php";
+          window.location.href = "./";
         });
       }
       
@@ -206,14 +206,14 @@
       var buttonSearch = document.getElementById("buttonSearch");
       if (buttonSearch) {
         buttonSearch.addEventListener("click", function (e) {
-          window.location.href = "/";
+          window.location.href = "./indonesia-univ-page.php";
         });
       }
       
       var searchUniversityAround = document.getElementById("searchUniversityAround");
       if (searchUniversityAround) {
         searchUniversityAround.addEventListener("click", function (e) {
-          window.location.href = "./home-page.php";
+          window.location.href = "./";
         });
       }
       
