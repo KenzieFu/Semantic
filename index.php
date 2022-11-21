@@ -52,7 +52,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
           <div class="menu-right-div2">
             <div class="menu-right-div2">
               <div class="activelink-div1">
-                <div class="search-around-the-world2">
+                <div class="search-around-the-world2  ">
                   Search Around The World
                 </div>
                 <div class="rectangle-div5"></div>
@@ -77,8 +77,8 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
           <div class="copywriting-div1">
             <div class="rectangle-div6"></div>
             <div class="rectangle-div7"></div>
-            <b class="discover-your-favourite-univer1">Discover Your Favourite University</b>
-            <div class="lets-help-you-to-know-more-ab1">
+            <b class="  discover-your-favourite-univer1">Discover Your Favourite University</b>
+            <div class="lets-help-you-to-know-more-ab1 ">
               Let’s Help You To Know More About Your Favourite University
             </div>
           </div>
@@ -91,7 +91,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                   </div>
                   <div class="seach-your-favourite-universit1">
 
-                    <input name="country" class="focus:outline-none  w-[100%]" type="text">
+                    <input name="country" placeholder="Search Your Favourite University" class="focus:outline-none  w-[100%]" type="text">
 
 
                   </div>

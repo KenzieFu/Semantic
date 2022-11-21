@@ -44,41 +44,62 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
 <body>
   <?php
 
-  $q = 'SELECT DISTINCT   ?country ?nama ?descs ?rector ?motto ?wiki ?thumb  WHERE {' .
+  $q = 'SELECT DISTINCT   ?country ?nama ?descs ?rector ?motto ?wiki   WHERE {' .
     '  ?univ rdf:type dbo:University .' .
     '  ?univ dbo:abstract ?descs .' .
     '  ?univ dbp:name ?nama .' .
     ' ?univ dbp:country dbr:' . $_POST['nama_negara'] . ' .' .
     ' dbr:' . $_POST['nama_negara'] . ' dbp:commonName ?country .' .
     '  ?univ dbp:rector ?rector .' .
-    '?univ foaf:isPrimaryTopicOf ?wiki .'.
-    '?univ dbp:motto ?motto .'.
-    '?univ dbo:thumbnail ?thumb .'.
+   
     'FILTER langMatches (lang(?descs),"EN")' .
     'FILTER langMatches (lang(?nama),"EN")' .
     'FILTER langMatches (lang(?country),"EN")' .
     'FILTER (str(?nama)=str(\'' . ($_POST['nama_univ']) . '\'))' .
+    'OPTIONAL{ ?univ foaf:isPrimaryTopicOf ?wiki .  ?univ dbp:motto ?motto .} '.
     '} LIMIT 1 ';
 
+ 
   $results = $sparql->query($q);
 
   $details = [];
   foreach ($results as $row) {
-    $details = [
-      "nama" => $row->nama,
-      "country" => $row->country,
-      "rector" => $row->rector,
-      "desc"=>$row->descs,
-      "motto"=>$row->motto,
-      "wiki"=>$row->wiki
-    ];
+      if(!empty($row->motto) && !empty($row->wiki))
+      {
+        $details = [
+          "nama" => $row->nama,
+          "country" => $row->country,
+          "rector" => $row->rector,
+          "desc"=>$row->descs,
+          "motto"=>$row->motto,
+          "wiki"=>$row->wiki
+        ];
+      }
+      else{
+        $details = [
+          "nama" => $row->nama,
+          "country" => $row->country,
+          "rector" => $row->rector,
+          "desc"=>$row->descs,
+          "motto"=>"Empty",
+          "wiki"=>null
+        ];
+      }
+
 
 
     break;
   }
-  \EasyRdf\RdfNamespace::setDefault('og');
-  $wiki= \EasyRdf\Graph::newAndLoad($details['wiki']);
-  $foto_url =$wiki->image;
+  if(!empty($details['wiki']))
+  {
+    \EasyRdf\RdfNamespace::setDefault('og');
+    $wiki= \EasyRdf\Graph::newAndLoad($details['wiki']);
+    $foto_url =$wiki->image;
+  }
+  else
+    $foto_url="public/default.png"
+
+  
  
 
 
@@ -96,7 +117,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
         <div class="menu-right-div">
           <div class="linkscontainer-div">
             <div class="linkscontainer-div">
-              <div class="search-around-the-world" id="searchAroundThe">
+              <div class="search-around-the-world " id="searchAroundThe">
                 Search Around the World
               </div>
               <div class="search-around-the-world" id="searchInIndonesia">
@@ -130,8 +151,8 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
           </div>
           <div class="frame-div">
             <div class="maindesc-div text-xl">
-              <div class="harvard-university-is-a-privat">
-                <p>
+              <div class="harvard-university-is-a-privat ">
+                <p >
                   <?= $details['desc'] ?>
                 </p>
              
@@ -175,7 +196,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                         <div class="show-results-for-university-n"><?= $details['country'] ?></div>
                       </div>
                     </div>
-                    <div class="row1-div">
+                   <!--  <div class="row1-div">
                       <div class="show-results-for-university-n">Founder</div>
                       <div class="frame-div1">
                         <div class="show-results-for-university-n">:</div>
@@ -192,7 +213,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                           John Harvard
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
