@@ -68,7 +68,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
 
     'OPTIONAL{ dbr:'.$univ.' foaf:isPrimaryTopicOf ?wiki .  dbr:'.$univ.' dbp:motto ?motto . dbr:'.$univ.' dbp:rector ?rector .} '.
     '} LIMIT 1 ';
-echo $q;
+
 
   $results = $sparql->query($q);
   $details = [];
