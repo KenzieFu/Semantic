@@ -16,7 +16,8 @@ require_once __DIR__ . "/vendor/easyrdf/easyrdf/lib/GraphStore.php";
 \EasyRdf\RdfNamespace::set('dbp', 'http://dbpedia.org/property/');
 \EasyRdf\RdfNamespace::set('foaf', 'http://xmlns.com/foaf/0.1/');
 \EasyRdf\RdfNamespace::set('geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
-\EasyRdf\RdfNamespace::setDefault('og');
+
+
 
 
 
@@ -53,23 +54,22 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
 
 <body>
   <?php
-    $univ=str_replace(' ', '_', ucwords($_POST['nama_univ']));
+    $univ=str_replace(' ', '_',($_POST['nama_univ']));
 
-  $q = 'SELECT DISTINCT  ?univ ?country ?nama ?descs ?rector ?motto ?wiki ?lat ?long   WHERE {' .
+
+  $q = 'SELECT DISTINCT    ?nama ?descs ?rector ?motto ?wiki ?lat ?long   WHERE {' .
     '  dbr:'.$univ.' rdf:type dbo:University;' .
     '   dbo:abstract ?descs ;' .
-    '   dbp:name ?nama ;' .
-    'geo:lat ?lat;'.
-    'geo:long ?long;'.
-    "dbp:country ?cnt." .
-    "?cnt dbp:commonName ?country.".
+    '   rdfs:label ?nama ;' .
+    '   geo:long ?long;' .
+    'geo:lat ?lat .'.
     'FILTER langMatches (lang(?descs),"EN")' .
     'FILTER langMatches (lang(?nama),"EN")' .
 
     'OPTIONAL{ dbr:'.$univ.' foaf:isPrimaryTopicOf ?wiki .  dbr:'.$univ.' dbp:motto ?motto . dbr:'.$univ.' dbp:rector ?rector .} '.
     '} LIMIT 1 ';
+echo $q;
 
- echo $q;
   $results = $sparql->query($q);
   $details = [];
   foreach ($results as $row) {
@@ -89,7 +89,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
         break;
       }
     
-echo $details['lat'];
+
   
   if(!empty($details['wiki']))
   {
@@ -276,7 +276,7 @@ echo $details['lat'];
     var searchAroundThe = document.getElementById("searchAroundThe");
     if (searchAroundThe) {
       searchAroundThe.addEventListener("click", function(e) {
-        window.location.href = "./home-page.php";
+        window.location.href = "./";
       });
     }
 
@@ -290,14 +290,14 @@ echo $details['lat'];
     var buttonVariantContainer = document.getElementById("buttonVariantContainer");
     if (buttonVariantContainer) {
       buttonVariantContainer.addEventListener("click", function(e) {
-        window.location.href = ".//home-page.php";
+        window.location.href = "./";
       });
     }
 
     var searchUniversityAround = document.getElementById("searchUniversityAround");
     if (searchUniversityAround) {
       searchUniversityAround.addEventListener("click", function(e) {
-        window.location.href = "./home-page.php";
+        window.location.href = "./";
       });
     }
 
