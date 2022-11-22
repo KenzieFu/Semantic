@@ -15,6 +15,8 @@ require_once __DIR__ . "/vendor/easyrdf/easyrdf/lib/GraphStore.php";
 \EasyRdf\RdfNamespace::set('gold', 'http://purl.org/linguistics/gold/');
 \EasyRdf\RdfNamespace::set('dbp', 'http://dbpedia.org/property/');
 \EasyRdf\RdfNamespace::set('foaf', 'http://xmlns.com/foaf/0.1/');
+\EasyRdf\RdfNamespace::set('geo', 'http://www.w3.org/2003/01/geo/wgs84_pos#');
+\EasyRdf\RdfNamespace::setDefault('og');
 
 
 
@@ -39,57 +41,56 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
 
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+     
+ <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
 </head>
 
 <body>
   <?php
+    $univ=str_replace(' ', '_', ucwords($_POST['nama_univ']));
 
-  $q = 'SELECT DISTINCT   ?country ?nama ?descs ?rector ?motto ?wiki   WHERE {' .
-    '  ?univ rdf:type dbo:University .' .
-    '  ?univ dbo:abstract ?descs .' .
-    '  ?univ dbp:name ?nama .' .
-    ' ?univ dbp:country dbr:' . $_POST['nama_negara'] . ' .' .
-    ' dbr:' . $_POST['nama_negara'] . ' dbp:commonName ?country .' .
-    '  ?univ dbp:rector ?rector .' .
-   
+  $q = 'SELECT DISTINCT  ?univ ?country ?nama ?descs ?rector ?motto ?wiki ?lat ?long   WHERE {' .
+    '  dbr:'.$univ.' rdf:type dbo:University;' .
+    '   dbo:abstract ?descs ;' .
+    '   dbp:name ?nama ;' .
+    'geo:lat ?lat;'.
+    'geo:long ?long;'.
+    "dbp:country ?cnt." .
+    "?cnt dbp:commonName ?country.".
     'FILTER langMatches (lang(?descs),"EN")' .
     'FILTER langMatches (lang(?nama),"EN")' .
-    'FILTER langMatches (lang(?country),"EN")' .
-    'FILTER (str(?nama)=str(\'' . ($_POST['nama_univ']) . '\'))' .
-    'OPTIONAL{ ?univ foaf:isPrimaryTopicOf ?wiki .  ?univ dbp:motto ?motto .} '.
+
+    'OPTIONAL{ dbr:'.$univ.' foaf:isPrimaryTopicOf ?wiki .  dbr:'.$univ.' dbp:motto ?motto . dbr:'.$univ.' dbp:rector ?rector .} '.
     '} LIMIT 1 ';
 
- 
+ echo $q;
   $results = $sparql->query($q);
-
   $details = [];
   foreach ($results as $row) {
-      if(!empty($row->motto) && !empty($row->wiki))
-      {
+      
         $details = [
           "nama" => $row->nama,
-          "country" => $row->country,
-          "rector" => $row->rector,
+          
+          "rector" => $row->rector ?? null,
           "desc"=>$row->descs,
-          "motto"=>$row->motto,
-          "wiki"=>$row->wiki
+          "motto"=>$row->motto ??null,
+          "wiki"=>$row->wiki ??null ,
+          "lat"=>$row->lat,
+          "long"=>$row->long,
+
+         
         ];
+        break;
       }
-      else{
-        $details = [
-          "nama" => $row->nama,
-          "country" => $row->country,
-          "rector" => $row->rector,
-          "desc"=>$row->descs,
-          "motto"=>"Empty",
-          "wiki"=>null
-        ];
-      }
-
-
-
-    break;
-  }
+    
+echo $details['lat'];
+  
   if(!empty($details['wiki']))
   {
     \EasyRdf\RdfNamespace::setDefault('og');
@@ -155,6 +156,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                 <p >
                   <?= $details['desc'] ?>
                 </p>
+              
              
               </div>
             </div>
@@ -168,7 +170,9 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                     </div>
                     <div class="rectangle-div1"></div>
                   </div>
+                
                   <div class="body-div">
+                  <?php if(!is_null($details['rector'])) : ?>
                     <div class="row1-div">
                       <div class="show-results-for-university-n">
                         President
@@ -180,6 +184,8 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                         </div>
                       </div>
                     </div>
+                    <?php endif;?>
+                    <?php if(!is_null($details['motto'])) : ?>
                     <div class="row1-div">
                       <div class="show-results-for-university-n">Motto</div>
                       <div class="frame-div1">
@@ -189,32 +195,17 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                         </div>
                       </div>
                     </div>
+                    <?php endif;?>
                     <div class="row1-div">
                       <div class="show-results-for-university-n">Country</div>
                       <div class="frame-div1">
                         <div class="show-results-for-university-n">:</div>
-                        <div class="show-results-for-university-n"><?= $details['country'] ?></div>
+                        <div class="show-results-for-university-n"><?= $_POST['nama_negara']?></div>
                       </div>
                     </div>
-                   <!--  <div class="row1-div">
-                      <div class="show-results-for-university-n">Founder</div>
-                      <div class="frame-div1">
-                        <div class="show-results-for-university-n">:</div>
-                        <div class="show-results-for-university-n">
-                          Massachusetts General Court
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row1-div">
-                      <div class="show-results-for-university-n">Mascot</div>
-                      <div class="frame-div1">
-                        <div class="show-results-for-university-n">:</div>
-                        <div class="show-results-for-university-n">
-                          John Harvard
-                        </div>
-                      </div>
-                    </div> -->
+                   
                   </div>
+                  <div id="map" class=" h-[300px] w-[100%]"></div>
                 </div>
               </div>
             </div>
@@ -316,6 +307,17 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
         window.location.href = "./indonesia-univ-page.php";
       });
     }
+  </script>
+  <script>
+    var map = L.map('map');
+    /* map.setView([$details['lat'],$details['long']], 13); */
+    map.setView([<?=$details['lat']?>,<?=$details['long']?>], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+var marker = L.marker([<?=$details['lat']?>,<?=$details['long']?>]).addTo(map);
   </script>
 </body>
 

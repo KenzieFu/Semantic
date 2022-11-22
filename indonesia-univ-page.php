@@ -9,6 +9,7 @@ require_once __DIR__ . "/html_tag_helpers.php";
 \EasyRdf\RdfNamespace::set('dbo', 'http://dbpedia.org/ontology/');
 \EasyRdf\RdfNamespace::set('dbpedia', 'http://dbpedia.org/property/');
 \EasyRdf\RdfNamespace::set('dbr', 'http://dbpedia.org/resource/');
+\EasyRdf\RdfNamespace::set('univ', 'https://example.org/schema/univ');
 \EasyRdf\RdfNamespace::set('gold', 'http://purl.org/linguistics/gold/');
 \EasyRdf\RdfNamespace::set('dbp', 'http://dbpedia.org/property/');
 
@@ -16,7 +17,10 @@ require_once __DIR__ . "/html_tag_helpers.php";
 
 
 $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
+$sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/sparql');
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -31,6 +35,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
   <link rel="stylesheet" href="./public/css/global.css" />
   <link rel="stylesheet" href="./public/css/indonesia-univ-page.css" />
   <link rel="stylesheet" href="./public/css/output.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
 </head>
@@ -73,39 +78,57 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
           <div class="copywriting-div">
             <div class="rectangle-div3"></div>
             <div class="rectangle-div4"></div>
-            <b class="discover-your-favourite-univer">Discover Your Favourite University</b>
+            <b class="discover-your-favourite-univer ">Discover Your Favourite University</b>
             <div class="lets-help-you-to-know-more-ab">
               Let’s Help You To Know More About Your Favourite University
             </div>
             <div class="indonesia-div">(Indonesia)</div>
           </div>
-        <!--   <div class="searchform-div">
-            <div class="frame-div7">
-              <div class="frame-div8">
-                <div class="frame-div9">
-                  <div class="search-div1">
-                    <img class="search-icon1" alt="" src="public/search1.svg" />
-                  </div>
-                  <div class="seach-your-favourite-universit">
-                    Seach Your Favourite University
-                  </div>
-                </div>
-                <button class="buttonsearch" id="buttonSearch">
-                  <div class="search-div1">
-                    <img class="search-icon1" alt="" src="public/search2.svg" />
-                  </div>
-                </button>
-              </div>
-            </div>
-          </div> -->
+      
         </div>
         <img class="woman-image-icon" alt="" src="public/image-11@2x.png" />
       </div>
-      <div class="my-5 bg-green-500 block mx-auto w-[90%]" >
-        <h1>List Of University</h1>
+  <?php
+
+  $q='SELECT DISTINCT    ?name ?desc ?city ?est ?rector   WHERE {
+    ?u rdf:type univ:ind;
+       rdfs:label ?name;
+       univ:abstract ?desc;
+       univ:city     ?city;
+       univ:established ?est;
+       univ:rector ?rector.
+       }';
+
+
+
+
+  $result=$sparql_jena->query($q);
+
+
+  
+  
+  ?>
+
+
+
+      <div class="my-5  block mx-auto w-[90%] " >
+        <h1 class=" font-bold">List Of University</h1>
         <div class="grid grid-cols-5 gap-5 mx-2 my-2">
-            <div class="bg-red-500 flex justify-center items-center w-[300px] h-[300px] border rounded-2xl  " >askldj</div>
+          <?php foreach($result as $res) :?>
+            <form action="./details.php" method="POST">
+            <div class="w-[300px] h-[300px] border rounded-lg shadow-lg group" style="padding:5px ; ">
+            <button  class="text-[25px] font-bold m-5"> <?=$res->name?></button>
+            <div class="  m-5">
+              <span class="text-bold text-xl block "><?=$res->city?></span>
+              <span class="text-bold text-xl block"><?=$res->est?></span>
+              <input type="hidden" name="nama_negara" value="Indonesia" >
+              <input type="hidden" name="nama_univ" value="<?= (isset($res->name) ? htmlspecialchars($res->name) : ''); ?>">
+              
+            </div>
             
+          </div>
+            </form>
+            <?php endforeach;?>
 
         </div>
       </div>
@@ -119,17 +142,10 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
     <div class="brands-div">
       <div class="logo-div1">
         <img class="logo-icon3" alt="" src="public/logo5.svg" />
-        <div class="unisearch-div3">UniSearch</div>
+        <div class="unisearch-div3 ">UniSearch</div>
         <img class="logo-icon4" alt="" src="public/logo6.svg" />
       </div>
     </div>
-
-
-
-
-
-
-
 
 
 
