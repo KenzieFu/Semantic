@@ -54,35 +54,39 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
 
 <body>
   <?php
-    $univ=str_replace(' ', '_',($_POST['nama_univ']));
+    $univ=str_replace(' ', '_',(trim($_POST['nama_univ'])));
 
 
   $q = 'SELECT DISTINCT    ?nama ?descs ?rector ?motto ?wiki ?lat ?long   WHERE {' .
     '  dbr:'.$univ.' rdf:type dbo:University;' .
     '   dbo:abstract ?descs ;' .
-    '   rdfs:label ?nama ;' .
-    '   geo:long ?long;' .
-    'geo:lat ?lat .'.
+    '   rdfs:label ?nama .' .
     'FILTER langMatches (lang(?descs),"EN")' .
     'FILTER langMatches (lang(?nama),"EN")' .
 
-    'OPTIONAL{ dbr:'.$univ.' foaf:isPrimaryTopicOf ?wiki .  dbr:'.$univ.' dbp:motto ?motto . dbr:'.$univ.' dbp:rector ?rector .} '.
+    'OPTIONAL{ dbr:'.$univ.' foaf:isPrimaryTopicOf ?wiki .
+        dbr:'.$univ.' dbp:motto ?motto .
+         dbr:'.$univ.' dbp:rector ?rector .
+         dbr:'.$univ.' geo:lat ?lat .
+         dbr:'.$univ.' geo:long ?long .
+        } '.
     '} LIMIT 1 ';
 
 
   $results = $sparql->query($q);
   $details = [];
+  echo $q;
   foreach ($results as $row) {
       
         $details = [
           "nama" => $row->nama,
           
           "rector" => $row->rector ?? null,
-          "desc"=>$row->descs,
+          "desc"=>$row->descs??null,
           "motto"=>$row->motto ??null,
           "wiki"=>$row->wiki ??null ,
-          "lat"=>$row->lat,
-          "long"=>$row->long,
+          "lat"=>$row->lat??null,
+          "long"=>$row->long ?? null,
 
          
         ];

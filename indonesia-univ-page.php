@@ -97,6 +97,7 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
        univ:city     ?city;
        univ:established ?est;
        univ:rector ?rector.
+     
        }';
 
 
