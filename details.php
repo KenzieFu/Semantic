@@ -75,7 +75,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
 
   $results = $sparql->query($q);
   $details = [];
-  echo $q;
+
   foreach ($results as $row) {
       
         $details = [
