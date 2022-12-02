@@ -82,6 +82,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
               Let’s Help You To Know More About Your Favourite University
             </div>
           </div>
+         <!--  Search -->
           <form method="GET" class="searchform">
             <div class="frame-div11">
               <div class="frame-div12">
