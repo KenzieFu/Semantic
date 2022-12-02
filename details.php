@@ -56,7 +56,10 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
 
 <body>
   <?php
-    $univ=str_replace(' ', '_',(trim($_POST['nama_univ'])));
+    $univ1=$_POST['nama_univ'];
+    $univ=trim(substr($univ1,28),"/");
+    
+    
 
 
   $q = 'SELECT DISTINCT    ?nama ?descs ?rector ?motto ?wiki ?lat ?long   WHERE {' .
@@ -66,12 +69,11 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
     'FILTER langMatches (lang(?descs),"EN")' .
     'FILTER langMatches (lang(?nama),"EN")' .
 
-    'OPTIONAL{ dbr:'.$univ.' foaf:isPrimaryTopicOf ?wiki .
-        dbr:'.$univ.' dbp:motto ?motto .
-         dbr:'.$univ.' dbp:rector ?rector .
-         dbr:'.$univ.' geo:lat ?lat .
-         dbr:'.$univ.' geo:long ?long .
-        } '.
+    'OPTIONAL{ dbr:'.$univ.' foaf:isPrimaryTopicOf ?wiki .}'.
+    'OPTIONAL{ dbr:'.$univ.' dbp:motto ?motto .}'.
+    'OPTIONAL{ dbr:'.$univ.' dbp:rector ?rector .}'.
+      'OPTIONAL{   dbr:'.$univ.' geo:lat ?lat .}'.
+        'OPTIONAL{ dbr:'.$univ.' geo:long ?long .}'.
     '} LIMIT 1 ';
 
 
@@ -81,7 +83,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
   foreach ($results as $row) {
       
         $details = [
-          "nama" => $row->nama,
+          "nama" => $row->nama??null,
           
           "rector" => $row->rector ?? null,
           "desc"=>$row->descs??null,
@@ -96,7 +98,6 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
       }
     
 
-  
   if(!empty($details['wiki']))
   {
     \EasyRdf\RdfNamespace::setDefault('og');
@@ -211,7 +212,9 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                     </div>
                    
                   </div>
+               
                   <div id="map" class=" h-[300px] w-[100%]"></div>
+                 
                 </div>
               </div>
             </div>

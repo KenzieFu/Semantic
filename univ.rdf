@@ -7,13 +7,13 @@
          xmlns:dc="http://purl.org/dc/terms/"
          xmlns:univ="https://example.org/schema/univ">
 
-    <univ:ind rdf:about="https://dbpedia.org/resource/University_of_Indonesia">
+    <univ:ind rdf:about="http://dbpedia.org/resource/University_of_Indonesia">
         <univ:number>1</univ:number>
-        <rdfs:label xmlns:lang="en">University of Indonesia</rdfs:label>
+        <rdfs:label>University of Indonesia</rdfs:label>
         <univ:abstract>
         The University of Indonesia (Indonesian: Universitas Indonesia, abbreviated as UI) is a public university in Depok, West Java and Salemba, Jakarta, Indonesia. It is one of the oldest tertiary-level educational institutions in Indonesia (known as the Dutch East Indies when UI was established), and is generally considered one of the most prestigious universities in Indonesia, along with the Gadjah Mada University and Bandung Institute of Technology. In the 2019 QS World Universities Ranking, UI is ranked 1st in Indonesia, 57th in Asia and 292nd in the world. 
         </univ:abstract>
-        <univ:image>https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/UI_Logo.svg/270px-UI_Logo.svg.png</univ:image>
+      
         <univ:city>Jakarta</univ:city>
         <univ:established>1950-02-02</univ:established>
         <univ:rector>Prof. Ari Kuncoro, S.E., M.A., Ph.D.</univ:rector>
@@ -23,7 +23,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Gadjah_Mada_University">
         <univ:number>2</univ:number>
-        <rdfs:label xmlns:lang="en">Gadjah Mada University</rdfs:label>
+        <rdfs:label >Gadjah Mada University</rdfs:label>
         <univ:abstract>
         Gadjah Mada University (Javanese: ꦈꦤꦶꦥ꦳ꦼꦂꦱꦶꦠꦱ꧀ꦓꦗꦃꦩꦢ; Indonesian: Universitas Gadjah Mada, abbreviated as UGM) is a public research university located in Sleman, Special Region of Yogyakarta, Indonesia. Officially founded on 19 December 1949, Gadjah Mada University is one of the oldest and largest institutions of higher education in the country. It is widely known as the largest and the first state university in the nation. It has been credited as one of the best universities in Indonesia. In the 2021 QS World Universities Ranking, UGM is ranked 1st in Indonesia and 254th in the world. When the university was established in the 1940s under Dutch rule, it was the first medicine faculty freely open to native Indonesians, at a time when native education was often restricted. Comprising 18 faculties and 27 research centers, UGM offers 68 undergraduate, 23 diploma, 104 master and specialist, 43 doctorate and 4 clusters of post doctoral study programs. The university has enrolled approximately 55,000 students, 1,187 foreign students, and has 2,500 faculty members. UGM maintains a campus of 360 acres (150 ha), with facilities that include a stadium and a fitness center. The university is named after Gajah Mada, a 14th-century leader of the Majapahit Empire of Java, considered by some historians to be the nation's first unifier; the university's name still reflects the old Dutch-era spelling. The 7th President of Indonesia, Joko Widodo, earned his degree in forestry in 1985.
         </univ:abstract>
@@ -36,7 +36,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Diponegoro_University">
         <univ:number>3</univ:number>
-        <rdfs:label xmlns:lang="en">Diponegoro University</rdfs:label>
+        <rdfs:label >Diponegoro University</rdfs:label>
         <univ:abstract>
         Diponegoro University (Hanacaraka: ꦈꦤꦶꦥ꦳ꦼꦂꦱꦶꦠꦱ꧀ꦢꦶꦥꦤꦼꦒꦫ; Indonesian: Universitas Diponegoro, abbreviated as Undip) is a public university in Semarang, Central Java, Indonesia. Founded in 1957 as a private university by the Semarang University Foundation, which later in 1960 became public university, and named after Javanese Prince Diponegoro. It is a pioneer of higher learning institutions in Indonesia and the first and oldest education corporation in Central Java. Nationally, Undip is in sixth position in Ministry of Research, Technology and Higher Education's 2017 ranking and is one of the top 1,000 universities in the world by the 2019 QS World University Rankings.
         </univ:abstract>
@@ -49,7 +49,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/University_of_North_Sumatra">
         <univ:number>4</univ:number>
-        <rdfs:label xmlns:lang="en">University of North Sumatra</rdfs:label>
+        <rdfs:label >University of North Sumatra</rdfs:label>
         <univ:abstract>
         The University of Sumatera Utara (Indonesian: Universitas Sumatera Utara) or USU is a public university located in the city of Medan in North Sumatra, Indonesia. It is situated in Padang Bulan, in the Medan Baru subdistrict of Medan, close to the City Centre, with a total area of 122 hectares. Due to an increase in the number of students, a new campus is being constructed in Kwala Bekala, about 15 kilometers away from the original campus, on an area of about 300 hectares. The rectors of the university serve an eight-year renewable term. USU was established as a Foundation Universitet North Sumatera on June 4, 1952. Initially, the foundation provided only one department, which was the Faculty of Medicine, established on August 20, 1952, now commemorated as the anniversary of USU. The first President of Indonesia, Sukarno, inaugurated USU on November 20, 1957, as the seventh state university in Indonesia.
         </univ:abstract>
@@ -62,7 +62,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Indonesia_University_of_Education">
         <univ:number>5</univ:number>
-        <rdfs:label xmlns:lang="en">Indonesia University of Education</rdfs:label>
+        <rdfs:label >Indonesia University of Education</rdfs:label>
         <univ:abstract>
         Indonesia University of Education (Indonesian: Universitas Pendidikan Indonesia, UPI) was established in 1954 as Teachers Education College (PTPG). It is in Bandung, Indonesia. Indonesia University of Education is a multi-campus university, with one main campus and several others. The main campus of is at Dr. Setiabudhi Street 229th, Bandung, Indonesia; other campuses are in Cibiru, Tasikmalaya, Sumedang, Purwakarta, and Serang. The development and improvement of UPI is not only oriented towards the academic field, but also in various fields, including the consolidation of concepts and development plans. Through the assistance of the Islamic Development Bank (IDB), UPI designed and managed the construction of a magnificent, modern and representative campus building to support teaching and learning activities. With the capabilities of the University of Education Indonesia, it is determined to make this educational institution a leading and leading University (a Leading and Outstanding University).
         </univ:abstract>
@@ -75,7 +75,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Bandung_Institute_of_Technology">
         <univ:number>6</univ:number>
-        <rdfs:label xmlns:lang="en">Bandung Institute of Technology</rdfs:label>
+        <rdfs:label >Bandung Institute of Technology</rdfs:label>
         <univ:abstract>
         ITB was considered the top choice among Indonesia's high school students in 2006 and has been credited as one of the most prestigious universities in Indonesia, together with Gadjah Mada University and University of Indonesia. Sukarno, the first president of the Republic of Indonesia, earned his engineering degree in civil engineering from ITB. Furthermore, B. J. Habibie, the third president of Indonesia, also spent a year in the mechanical engineering department of ITB and is officially recognized as a graduate. The university cultivates professional and social activities by supporting its students' unions, the student government councils that exist in every department. Each students' union has its own distinctly designed jacket that, among other traditions, serves as part of its member identity. There are also a number of student activity units/clubs supporting ITB student interests in rounding out their educational experience. It is not uncommon that the students and alumni are identified by the clubs to which they belong (or used to belong) at ITB, in addition to their class year and major. As of 2020, ITB had thirteen undergraduate study programs been internationally accredited from an independent U.S.-based accrediting institution, Accreditation Board for Engineering and Technology. The thirteen study programs are Electrical Engineering, Informatics, Chemical Engineering, Engineering Physics, Industrial Engineering, Engineering Management, Ocean Engineering, Petroleum Engineering, Civil Engineering, Environmental Engineering, Mining Engineering, Electrical Power Engineering, and Telecommunication Engineering. ITB's march "Mars ITB" and hymn "Hymne ITB" were arranged by a former professor, Prof. Dr. Sudjoko Danoesoebrata. 
         </univ:abstract>
@@ -88,7 +88,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/University_of_Pembangunan_Nasional_Veteran">
         <univ:number>7</univ:number>
-        <rdfs:label xmlns:lang="en">University of Pembangunan Nasional Veteran</rdfs:label>
+        <rdfs:label >University of Pembangunan Nasional Veteran</rdfs:label>
         <univ:abstract>
         UPN "Veteran" East Java, located in Surabaya with a population of 5,000,000 people, is one of the State Universities in Indonesia which was established on July 5, 1959. UPN "Veteran" in East Java is a very large institution with 20,000 students from various provinces in Indonesia as well as foreign students. UPN “Veteran” in East Java was founded by veterans of freedom fighters as a living monument to the development of education in Indonesia. In its development, UPN "Veteran" in East Java has undergone several name and status changes. This 63-year-old Indonesian university has a selective admission policy based on entrance exams. An acceptance rate range of 0-10% makes this Indonesian higher education organization a highly selective institution. International applicants are eligible to apply. UPN also provides several academic and non-academic facilities and services to students, including libraries, dormitories, sports facilities, financial assistance and/or scholarships, study abroad and exchange programs, as well as administrative services.
         </univ:abstract>
@@ -101,7 +101,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Sultan_Ageng_Tirtayasa_University">
         <univ:number>8</univ:number>
-        <rdfs:label xmlns:lang="en">Sultan Ageng Tirtayasa University</rdfs:label>
+        <rdfs:label >Sultan Ageng Tirtayasa University</rdfs:label>
         <univ:abstract>
         Sultan Ageng Tirtayasa University (abbreviated as Untirta) is the only state university in the province of Banten, Indonesia. The main campus is in Serang Regency, the faculty of engineering is at Cilegon, and Faculty of Education most of it is located in Ciwaru Serang. Sultan Ageng Tirtayasa University was established by the Tirtayasa Foundation. Untirta has seven faculties: Law, Teacher Training and Education, Engineering, Agriculture, Economics, Social, Political Science, and Medicine. Sultan Ageng Tirtayasa University is the youngest public university in Indonesia.
         </univ:abstract>
@@ -114,7 +114,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Syiah_Kuala_University">
         <univ:number>9</univ:number>
-        <rdfs:label xmlns:lang="en">Syiah Kuala University</rdfs:label>
+        <rdfs:label >Syiah Kuala University</rdfs:label>
         <univ:abstract>
         Syiah Kuala University (Indonesian: Universitas Syiah Kuala), abbreviated as USK (formerly: Unsyiah), founded on 2 September 1961, is the largest and the oldest national university in Banda Aceh, Indonesia. The name of the university is taken from the prominent theologian, Tengku Abdur Rauf As Singkili, who lived in the 16th century. USK has twelve faculties, providing Associate, Bachelor, and master's degrees. USK has 131 laboratories for student lab work, student and lecturer experiments, and community service. The laboratories are spread across departments and faculties as follows: economics 2, veterinary science 11, law 1 engineering 29, agriculture 17, medical 27, mathematics and natural sciences 26, and one integrated laboratory. (en)
         </univ:abstract>
@@ -127,7 +127,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Sam_Ratulangi_University">
         <univ:number>10</univ:number>
-        <rdfs:label xmlns:lang="en">Sam Ratulangi University</rdfs:label>
+        <rdfs:label >Sam Ratulangi University</rdfs:label>
         <univ:abstract>
         Sam Ratulangi University (Indonesian: Universitas Sam Ratulangi, abbreviated as UNSRAT) is a state university in Manado, North Sulawesi, Indonesia. It was established on September 14, 1965. The current rector is Prof. Dr. Ir. Ellen Joan Kumaat, M.Sc., DEA.
         </univ:abstract>
@@ -140,7 +140,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Sebelas_Maret_University">
         <univ:number>11</univ:number>
-        <rdfs:label xmlns:lang="en">Sebelas Maret University</rdfs:label>
+        <rdfs:label >Sebelas Maret University</rdfs:label>
         <univ:abstract>
         Sebelas Maret University (Indonesian: Universitas Sebelas Maret; it is colloquially known as UNS or UNS Solo) is an Indonesian public university in the suburban area of Surakarta, Central Java, Indonesia. It was officially founded on March 11, 1976.
         </univ:abstract>
@@ -153,7 +153,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/University_of_Brawijaya">
         <univ:number>12</univ:number>
-        <rdfs:label xmlns:lang="en">University of Brawijaya</rdfs:label>
+        <rdfs:label >University of Brawijaya</rdfs:label>
         <univ:abstract>
         The University of Brawijaya (Indonesian: Universitas Brawijaya, abbreviated as UB), was established on 5 January 1963 and located in Malang. It is an autonomous state university in Indonesia. University of Brawijaya is recognized as one of the elite campuses in Indonesia and consistently ranked 5th in national level by official release from Kemenristekdikti along with University of Indonesia (UI), Bogor Agricultural University (IPB), Gadjah Mada University (UGM), and Bandung Institute of Technology (ITB). In International level, University of Brawijaya ranked 51st in Asia and 400th Worldwide, thus made University of Brawijaya as one of few Indonesian universities which indexed by QS World University Rankings. University of Brawijaya has 55,469 students from 18 faculties and 221 departments, ranging from the vocational, undergraduate, graduate, postgraduate, and medical specialist programs. There are four campuses that UB possesses, two of them are located in Malang at Veteran and Dieng, then the rest are in Kediri and Jakarta. The main campus is located in the western part of Malang City with the total area of 60 hectares. It's a very strategic location and it has a great infrastructure. The campus has pleasant climate with a good amount of trees and fresh air. Overall, University of Brawijaya owns 9,813,664 m2 or 981 hectares and its endowment fund reached 5.12 trillion Rupiah (US$360 million). University of Brawijaya considered as the second biggest and wealthiest university in the country, after University of Indonesia (UI). 
         </univ:abstract>
@@ -166,7 +166,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Indonesia_Open_University">
         <univ:number>13</univ:number>
-        <rdfs:label xmlns:lang="en">Indonesia Open University</rdfs:label>
+        <rdfs:label >Indonesia Open University</rdfs:label>
         <univ:abstract>
         Universitas Terbuka (UT, literally Open University) is Indonesia's state university and employs open and distance learning (ODL) system to widen access to higher education to all Indonesian citizens, including those who live in remote islands throughout the country, as well as in various parts of the world. It has a total student body of 1,045,665 as of 2019/2020 according to Indonesia's Ministry of Education Higher Education database. According to a distance education institution in the UK, which published "The Top Ten Mega Universities", UT-3 ranks closely with universities from China and Turkey.
         </univ:abstract>
@@ -179,7 +179,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Andalas_University">
         <univ:number>14</univ:number>
-        <rdfs:label xmlns:lang="en">Andalas University</rdfs:label>
+        <rdfs:label >Andalas University</rdfs:label>
         <univ:abstract>
         Andalas University (Indonesian: Universitas Andalas, abbreviated Unand) is a public research university in Padang, West Sumatra. Andalas is one of the major public institution of higher learning in Indonesia, and the oldest outside the island of Java. The university is known for its excellence in social sciences and medical program, and has produced numerous distinguished alumni in public and private service. In November 2019, Andalas was ranked fourth best Indonesian research university from a nationwide evaluation conducted by the Ministry of Research and Technology.
         </univ:abstract>
@@ -192,7 +192,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Lampung_University">
         <univ:number>15</univ:number>
-        <rdfs:label xmlns:lang="en">Lampung University</rdfs:label>
+        <rdfs:label >Lampung University</rdfs:label>
         <univ:abstract>
         Lampung University (Indonesian: Universitas Lampung) is a public university in Bandar Lampung, Lampung, Indonesia. It was established on September 22, 1965. Its rector is Prof. Dr. Karomani, M.Si. 
         </univ:abstract>
@@ -205,7 +205,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Sriwijaya_University">
         <univ:number>16</univ:number>
-        <rdfs:label xmlns:lang="en">Sriwijaya University</rdfs:label>
+        <rdfs:label >Sriwijaya University</rdfs:label>
         <univ:abstract>
         Sriwijaya University (Indonesian: Universitas Sriwijaya, abbreviated as UNSRI) is a research, teaching and learning center which has contributed significantly in the development and advancement of sciences, technologies, arts and cultures.Being one of the major state universities in Indonesia, Sriwijaya University's initial campus is located in Palembang, the capital of South Sumatera Province, and the second campus is located in , Ogan Ilir Regency approximately 32 km away from Palembang. UNSRI obtained the accreditation "Very Good (A)" awarded by the National Accreditation Board of Higher Education (Indonesian: Badan Akrediasi Nasional Perguruan Tinggi, abbreviated as BAN-PT).
         </univ:abstract>
@@ -218,7 +218,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Padjadjaran_University">
         <univ:number>17</univ:number>
-        <rdfs:label xmlns:lang="en">Padjadjaran University</rdfs:label>
+        <rdfs:label >Padjadjaran University</rdfs:label>
         <univ:abstract>
         Padjadjaran University (Indonesian: Universitas Padjadjaran, abbreviated as UNPAD) is an institution of higher learning located in Bandung, which is the provincial capital of West Java, and Sumedang, Indonesia. It was established on September 11, 1957. UNPAD has gained the most applicant and highest passing grade in National Selection of State University Entrance (SNMPTN) since 2013. In 2014, UNPAD was officially set as State University of Legal Entities and accredited "A" by BAN-PT. It also ranked as top ten universities in Indonesia by Ministry of Research, Technology and Higher Education in 2016. In the 2019 QS World Universities Ranking, UNPAD is ranked 4th in Indonesia and got in the range of rankings of 651-700th in the world. UNPAD was also one of the contributors to the venue for an important conference, the Asia-Africa Conference in 1955, where Bandung was appointed as the host. Therefore, the construction of its facilities is prevalent since then. 
         </univ:abstract>
@@ -231,7 +231,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Syarif_Hidayatullah_State_Islamic_University_Jakarta">
         <univ:number>18</univ:number>
-        <rdfs:label xmlns:lang="en">Syarif Hidayatullah State Islamic University Jakarta</rdfs:label>
+        <rdfs:label >Syarif Hidayatullah State Islamic University Jakarta</rdfs:label>
         <univ:abstract>
         State Islamic University Syarif Hidayatullah Jakarta (Indonesian: Universitas Islam Negeri Syarif Hidayatullah Jakarta, Arabic: جامعة شريف هداية الله الإسلامية الحكومية جاكرتا) is a public university in Indonesia. It is in Ciputat, South Tangerang, Banten.
         </univ:abstract>
@@ -244,7 +244,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/Telkom_University">
         <univ:number>19</univ:number>
-        <rdfs:label xmlns:lang="en">Telkom University</rdfs:label>
+        <rdfs:label >Telkom University</rdfs:label>
         <univ:abstract>
         Telkom University, also referred to by its acronym of Tel-U, is a private university located in Bandung, West Java, Indonesia. It was established in 2013 with four institutions, which were under Telkom Indonesia through its education-focused wing, Telkom Education Foundation (now Telkom Foundation), were merged to form the university. These four forming institutions were Telkom Institute of Technology (IT Telkom - Institut Teknologi Telkom), Telkom Institute of Management (IM Telkom - ), Telkom Polytechnic, and the Telkom College of Art and Design Indonesia ( - Sekolah Tinggi Seni Rupa dan Desain Indonesia Telkom). The university, like its preceding institutions, maintains links with hundreds of companies, many of which in the telecommunications sector. The main campus site of Telkom University extends on the 48ha-area of Bandung Technoplex (BT-Plex), on Jalan Telekomunikasi – Terusan Buahbatu, Kabupaten Bandung. Other campus is located in Gegerkalong Hilir area, north of the city of Bandung, at the office area of PT. Telkom's Research and Development Center and Telkom Corporate University/Telkom Training Center. Telkom University was awarded as the number 1 best private University in Indonesia and 14 best University (Private and Public University) in Indonesia.
         </univ:abstract>
@@ -257,7 +257,7 @@
 
     <univ:ind rdf:about="https://dbpedia.org/resource/President_University">
         <univ:number>20</univ:number>
-        <rdfs:label xmlns:lang="en">President University</rdfs:label>
+        <rdfs:label >President University</rdfs:label>
         <univ:abstract>
         President University (Indonesian: Universitas Presiden) is an international private university located in the Jababeka Industrial Estate, the largest industrial area in Southeast Asia. PresUniv was founded in 2001 by national entrepreneur Dr. (HC) SD Darmono, the founder of the Jababeka Group and Prof. Dr. Juwono Sudarsono, an academic who has held various ministerial positions such as Minister of Environment, Minister of Education and Culture to Minister of Defense. Several figures also contributed in formulating PresUniv to become an international university, such as legal expert Prof. Dr. Charles Himawan, SH, LLM, Ir. Admiral Sukardi (Minister of State for Investment and Empowerment of SOEs (1999-2001) and Minister of SOEs (2001-2004)), Drs. Utomo Josodirjo, who is known as the Father of Indonesian Accounting, entrepreneur Surjanto Sosrodjojo, and Prof. Donald Watts from the University of Notre Dame, Australia. PresUniv is an international university, which is why it offers lectures in English as part of its academic program. Furthermore, some of PresUniv's lecturers are also foreign lecturers, and about 10% of the students are international students from different countries who come from all over the world. The rest of the Indonesian students who study at PresUniv come from various provinces. The existence of foreign lecturers and students, including students from various provinces, bringing their respective traditions, culture and habits contribute to building the character of education at PresUniv that is open and tolerant. PresUniv's location in the Jababeka industrial area is also very supportive of an international climate. The industrial area is home to more than 1,750 national and international or multinational companies. These companies also become organic laboratories for PresUniv lecturers and students. Lecturers can do research, and students can do internships in these companies. Since 2018, PresUniv has been accredited A from the National Accreditation Board for Higher Education (BAN-PT) and at the same time became the 78th university in Indonesia to be accredited A, together with several other state universities. Currently, PresUniv has 17 undergraduate programs and 2 postgraduate programs. 50% of the study programs at PresUniv have also been accredited A, and the rest B. PresUniv, under the auspices of the President University Foundation (YPUP), is currently led by Prof. Dr. Ir. Chairy, SE, MM, as Rector. Meanwhile, YPUP is led by Prof. Dr. Ir. Budi Susilo Soepandji, DEA, an academic who has served as Governor of the National Resilience Institute (2011-2016). To support its lecture activities, PresUniv provides dormitories and apartments located not far from campus, namely President University Student Housing (PUSH), Elvis Tower apartments, and New Beverly Hills. In addition, PresUniv also provides bicycles and buses as means of transportation that students can access free of charge.
         </univ:abstract>

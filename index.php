@@ -117,10 +117,10 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
       $getCountry = $_GET['country'];
       $getCountry = str_replace(' ', '_', ucwords($getCountry));
       $result = $sparql->query(
-        'SELECT DISTINCT   ?country ?nama   WHERE {' .
-          '  ?univ rdf:type dbo:University .' .
-          '  ?univ dbo:abstract ?desc .' .
-          '  ?univ dbp:name ?nama .' .
+        'SELECT DISTINCT   ?country ?nama ?univ   WHERE {' .
+          '  ?univ rdf:type dbo:University;' .
+          '  dbo:abstract ?desc ;' .
+          '   dbp:name ?nama.' .
           ' ?univ dbp:country dbr:' . $getCountry . ' .' .
           ' dbr:' . $getCountry . ' dbp:commonName ?country .' .
           'FILTER langMatches (lang(?desc),"EN")' .
@@ -158,7 +158,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                 <td><?= $row->country ?></td>
                 <td>
                   <form method="POST" action="./details.php">
-                    <input type="hidden" name="nama_univ" value="<?=$row->nama?>" />
+                    <input type="hidden" name="nama_univ" value="<?=$row->univ?>" />
                     <input type="hidden" name="nama_negara" value="<?=$row->country?>" />
                       <button class="bg-green-500 p-2 rounded-lg text-white text-lg"> ACTION</button>
                   </form>

@@ -90,7 +90,7 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
       </div>
   <?php
 
-  $q='SELECT DISTINCT    ?name ?desc ?city ?est ?rector   WHERE {
+  $q='SELECT DISTINCT    *   WHERE {
     ?u rdf:type univ:ind;
        rdfs:label ?name;
        univ:abstract ?desc;
@@ -104,7 +104,6 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
 
 
   $result=$sparql_jena->query($q);
-
 
   
   
@@ -123,7 +122,7 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
               <span class="text-bold text-xl block "><?=$res->city?></span>
               <span class="text-bold text-xl block"><?=$res->est?></span>
               <input type="hidden" name="nama_negara" value="Indonesia" >
-              <input type="hidden" name="nama_univ" value="<?= (isset($res->name) ? htmlspecialchars($res->name) : ''); ?>">
+              <input type="hidden" name="nama_univ" value="<?=$res->u ?>">
               
             </div>
             
