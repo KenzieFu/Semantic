@@ -92,7 +92,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
                   </div>
                   <div class="seach-your-favourite-universit1">
 
-                    <input name="country" placeholder="Search Your Favourite University" class="focus:outline-none  w-[100%]" type="text">
+                    <input name="country" placeholder="Search Country" class="focus:outline-none  w-[100%]" type="text">
 
 
                   </div>
@@ -106,7 +106,7 @@ $sparql = new \EasyRdf\Sparql\Client('http://dbpedia.org/sparql');
             </div>
           </form>
         </div>
-        <img class="woman-image-icon1" alt="" src="public/image-11@2x.png" />
+        <img class="woman-image-icon1" alt="" src="public/pict.png" />
       </div>
     </div>
 

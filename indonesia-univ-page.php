@@ -86,7 +86,7 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
           </div>
       
         </div>
-        <img class="woman-image-icon" alt="" src="public/image-11@2x.png" />
+        <img class="woman-image-icon" alt="" src="public/pict.png" />
       </div>
   <?php
 
