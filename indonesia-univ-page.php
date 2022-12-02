@@ -90,7 +90,7 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
       </div>
   <?php
 
-  $q='SELECT DISTINCT    *   WHERE {
+  $q='SELECT DISTINCT   *  WHERE {
     ?u rdf:type univ:ind;
        rdfs:label ?name;
        univ:abstract ?desc;
@@ -104,7 +104,6 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
 
 
   $result=$sparql_jena->query($q);
-
   
   
   ?>
