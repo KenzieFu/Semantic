@@ -79,7 +79,7 @@ $sparql_jena = new \EasyRdf\Sparql\Client('http://localhost:3030/Universitas/spa
             <div class="rectangle-div3"></div>
             <div class="rectangle-div4"></div>
             <b class="discover-your-favourite-univer ">Discover Your Favourite University</b>
-            <div class="lets-help-you-to-know-more-ab">
+            <div class="lets-help-you-to-know-more-ab text-white">
               Let’s Help You To Know More About Your Favourite University
             </div>
             <div class="indonesia-div">(Indonesia)</div>
